@@ -4,7 +4,6 @@ import statistics
 
 csv_file = 'us-500.csv'
 csv_path = f'{os.getcwd()}\{csv_file}'
-
 df = pd.read_csv(csv_path, header=None)
 n_rows, n_col = df.shape
 n_rows -= 1
@@ -19,7 +18,7 @@ def function1():
         start_r = int(input(f'Please choose start row: '))
         end_r = int(input(f'Please choose end row: '))
         if start_r < 0 or end_r > n_rows:
-            print("\nOut of range, please try again.\n")
+            print("\nRow(s) out of range, please try again.\n")
         else:
             break
 
@@ -27,7 +26,7 @@ def function1():
         start_c = int(input(f'Please choose start column: '))
         end_c = int(input(f'Please choose end column: '))
         if start_c < 0 or end_c > n_col:
-            print("Invalid choice, please try again")
+            print("\Column(s) out of range, please try again.\n")
         else:
             break
 
@@ -57,6 +56,10 @@ def checkType(val):
     # Data (Others)
     return options[0]
 
+
+# function2 checks the column type.
+# Input arguement, DataFrame.
+# Return, list of column types. 
 def function2(data):
     to_return = []
     temp = [[] for i in range(n_col + 1)]
@@ -73,7 +76,7 @@ def function2(data):
 def main():
     print(f"\n\n\n\n\n\n{' CSV Exercise ':*^40}")
 
-    print(f"\n\n{' Categories ':-^40}")
+    print(f"\n\n{' Columns ':-^40}")
     print(function2(df))
     
     print(f"\n\n{' Filter ':-^40}")
