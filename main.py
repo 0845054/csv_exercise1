@@ -81,9 +81,8 @@ def main():
     
     print(f"\n\n{' Filter ':-^40}")
     r, c = function1()
-    print(df.iloc[r[0]:r[1]+1, c[0]:c[1]+1])
-
+    filtered = df.iloc[r[0]:r[1]+1, c[0]:c[1]+1] 
+    filtered.to_csv('filtered.csv', header=None, index=None)
     
     
-
 main()
